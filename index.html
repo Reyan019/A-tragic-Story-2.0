@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greeting Card Maker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>🎉 Greeting Card Maker</h1>
+    <p>Create beautiful custom greeting cards in minutes!</p>
+  </header>
+
+  <div class="container">
+    <label for="toName">To:</label>
+    <input type="text" id="toName" placeholder="Recipient's name..." />
+
+    <label for="fromName">From:</label>
+    <input type="text" id="fromName" placeholder="Your name..." />
+
+    <label>Select Theme:</label>
+    <div class="theme-buttons">
+      <button data-theme="birthday">🎂 Birthday</button>
+      <button data-theme="congratulations">🎉 Congratulations</button>
+      <button data-theme="love">❤️ Love</button>
+      <button data-theme="friendship">🤩 Friendship</button>
+      <button data-theme="thankYou">🙏 Thank You</button>
+      <button data-theme="anniversary">💍 Anniversary</button>
+      <button data-theme="babyShower">🍼 Baby Shower</button>
+      <button data-theme="graduation">🎓 Graduation</button>
+      <button data-theme="getWellSoon">💐 Get Well Soon</button>
+      <button data-theme="sympathy">🌷 Sympathy</button>
+      <button data-theme="christmas">🎄 Christmas</button>
+      <button data-theme="newYear">🎆 New Year</button>
+      <button data-theme="easter">🐣 Easter</button>
+      <button data-theme="valentinesDay">💘 Valentine's Day</button>
+      <button data-theme="mothersDay">💐 Mother's Day</button>
+      <button data-theme="fathersDay">👔 Father's Day</button>
+      <button data-theme="housewarming">🏡 Housewarming</button>
+      <button data-theme="retirement">🎉 Retirement</button>
+      <button data-theme="goodLuck">🍀 Good Luck</button>
+      <button data-theme="wedding">💍 Wedding</button>
+    </div>
+
+    <label for="fontStyle">Select Font Style:</label>
+    <select id="fontStyle">
+      <option value="Arial, sans-serif">Arial</option>
+      <option value="'Courier New', monospace">Courier New</option>
+      <option value="'Georgia', serif">Georgia</option>
+      <option value="'Poppins', sans-serif">Poppins</option>
+      <option value="'Times New Roman', serif">Times New Roman</option>
+      <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+      <option value="'Brush Script MT', cursive">Brush Script MT</option>
+      <option value="'Pacifico', cursive">Pacifico</option>
+      <option value="'Dancing Script', cursive">Dancing Script</option>
+      <option value="'Lobster', cursive">Lobster</option>
+      <option value="'Indie Flower', cursive">Indie Flower</option>
+      <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
+    </select>
+
+    <label for="backgroundColor">Select Background Color:</label>
+    <input type="color" id="backgroundColor" value="#ffffff" />
+
+    <label for="customMessage">Write Your Message:</label>
+    <textarea id="customMessage" placeholder="Write your custom message here..." rows="4"></textarea>
+
+    <button id="generateCard">Generate Card</button>
+
+    <div id="card" class="card">
+      <div class="page left">
+        <p id="toDisplay" class="to-from"></p>
+        <h2 id="cardTitle"></h2>
+        <p id="poeticMessage"></p>
+        <div id="leftEmoji" class="emoji"></div>
+      </div>
+      <div class="page right">
+        <div id="rightEmoji" class="emoji"></div>
+        <p id="customMessageDisplay"></p>
+        <p id="fromDisplay" class="to-from"></p>
+      </div>
+    </div>
+
+    <button id="downloadCard">Download Card</button>
+  </div>
+
+  <footer>
+    <p>© 2023 Greeting Card Maker. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
