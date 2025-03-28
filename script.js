@@ -110,11 +110,106 @@ document.querySelectorAll(".theme-buttons button").forEach((button) => {
 });
 
 // Download Card as an Image
-document.getElementById("downloadCard").addEventListener("click", function () {
-  html2canvas(document.getElementById("card")).then((canvas) => {
-    let link = document.createElement("a");
-    link.href = canvas.toDataURL("image/png");
-    link.download = "greeting_card.png";
-    link.click();
-  });
+document.getElementById("downloadCard").addEventListener("click", async function () {
+    const card = document.getElementById("card");
+    const { jsPDF } = window.jspdf;
+
+    try {
+        // Show loading state
+        this.disabled = true;
+        this.textContent = "Generating PDF...";
+
+        const canvas = await html2canvas(card, {
+            scale: 3, // Higher resolution
+            logging: false,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: null
+        });
+
+        // Create PDF in landscape orientation
+        const pdf = new jsPDF('l', 'mm', 'a4');
+
+        // Calculate dimensions to fit A4 perfectly
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const imgRatio = canvas.width / canvas.height;
+        const pdfRatio = pdfWidth / pdfHeight;
+
+        let finalWidth, finalHeight;
+        if (imgRatio > pdfRatio) {
+            finalWidth = pdfWidth;
+            finalHeight = pdfWidth / imgRatio;
+        } else {
+            finalHeight = pdfHeight;
+            finalWidth = pdfHeight * imgRatio;
+        }
+
+        // Center the image on the page
+        const x = (pdfWidth - finalWidth) / 2;
+        const y = (pdfHeight - finalHeight) / 2;
+
+        pdf.addImage(canvas, 'PNG', x, y, finalWidth, finalHeight);
+        pdf.save('greeting_card.pdf');
+
+    } catch (error) {
+        console.error("Error generating PDF:", error);
+        alert("Error generating PDF. Please try again.");
+    } finally {
+        // Reset button state
+        this.disabled = false;
+        this.textContent = "Download Card";
+    }
+});
+
+document.getElementById("downloadCard").addEventListener("click", async function () {
+    const card = document.getElementById("card");
+    const { jsPDF } = window.jspdf;
+
+    try {
+        // Show loading state
+        this.disabled = true;
+        this.textContent = "Generating PDF...";
+
+        const canvas = await html2canvas(card, {
+            scale: 3, // Higher resolution
+            logging: false,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: null
+        });
+
+        // Create PDF in landscape orientation
+        const pdf = new jsPDF('l', 'mm', 'a4');
+
+        // Calculate dimensions to fit A4 perfectly
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+        const imgRatio = canvas.width / canvas.height;
+        const pdfRatio = pdfWidth / pdfHeight;
+
+        let finalWidth, finalHeight;
+        if (imgRatio > pdfRatio) {
+            finalWidth = pdfWidth;
+            finalHeight = pdfWidth / imgRatio;
+        } else {
+            finalHeight = pdfHeight;
+            finalWidth = pdfHeight * imgRatio;
+        }
+
+        // Center the image on the page
+        const x = (pdfWidth - finalWidth) / 2;
+        const y = (pdfHeight - finalHeight) / 2;
+
+        pdf.addImage(canvas, 'PNG', x, y, finalWidth, finalHeight);
+        pdf.save('greeting_card.pdf');
+
+    } catch (error) {
+        console.error("Error generating PDF:", error);
+        alert("Error generating PDF. Please try again.");
+    } finally {
+        // Reset button state
+        this.disabled = false;
+        this.textContent = "Download Card";
+    }
 });
