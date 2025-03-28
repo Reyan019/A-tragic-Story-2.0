@@ -1,96 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Greeting Card Maker</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Card Maker | Create Beautiful Custom Cards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <header>
-    <h1>🎉 Greeting Card Maker</h1>
-    <p>Create beautiful custom greeting cards in minutes!</p>
-  </header>
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-gift"></i> CardCraft
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-  <div class="container">
-    <label for="toName">To:</label>
-    <input type="text" id="toName" placeholder="Recipient's name..." />
+    <main class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Create Stunning Greeting Cards</h1>
+                <p>Design beautiful, personalized cards for any occasion in minutes</p>
+                <a href="#card-creator" class="btn btn-primary">Start Creating</a>
+            </div>
+        </div>
+    </main>
 
-    <label for="fromName">From:</label>
-    <input type="text" id="fromName" placeholder="Your name..." />
+    <section id="card-creator" class="card-creator-section">
+        <div class="container">
+            <h2 class="section-title">Design Your Card</h2>
 
-    <label>Select Theme:</label>
-    <div class="theme-buttons">
-      <button data-theme="birthday">🎂 Birthday</button>
-      <button data-theme="congratulations">🎉 Congratulations</button>
-      <button data-theme="love">❤️ Love</button>
-      <button data-theme="friendship">🤩 Friendship</button>
-      <button data-theme="thankYou">🙏 Thank You</button>
-      <button data-theme="anniversary">💍 Anniversary</button>
-      <button data-theme="babyShower">🍼 Baby Shower</button>
-      <button data-theme="graduation">🎓 Graduation</button>
-      <button data-theme="getWellSoon">💐 Get Well Soon</button>
-      <button data-theme="sympathy">🌷 Sympathy</button>
-      <button data-theme="christmas">🎄 Christmas</button>
-      <button data-theme="newYear">🎆 New Year</button>
-      <button data-theme="easter">🐣 Easter</button>
-      <button data-theme="valentinesDay">💘 Valentine's Day</button>
-      <button data-theme="mothersDay">💐 Mother's Day</button>
-      <button data-theme="fathersDay">👔 Father's Day</button>
-      <button data-theme="housewarming">🏡 Housewarming</button>
-      <button data-theme="retirement">🎉 Retirement</button>
-      <button data-theme="goodLuck">🍀 Good Luck</button>
-      <button data-theme="wedding">💍 Wedding</button>
-    </div>
+            <div class="creator-container">
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="toName">To:</label>
+                        <input type="text" id="toName" placeholder="Recipient's name...">
+                    </div>
 
-    <label for="fontStyle">Select Font Style:</label>
-    <select id="fontStyle">
-      <option value="Arial, sans-serif">Arial</option>
-      <option value="'Courier New', monospace">Courier New</option>
-      <option value="'Georgia', serif">Georgia</option>
-      <option value="'Poppins', sans-serif">Poppins</option>
-      <option value="'Times New Roman', serif">Times New Roman</option>
-      <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
-      <option value="'Brush Script MT', cursive">Brush Script MT</option>
-      <option value="'Pacifico', cursive">Pacifico</option>
-      <option value="'Dancing Script', cursive">Dancing Script</option>
-      <option value="'Lobster', cursive">Lobster</option>
-      <option value="'Indie Flower', cursive">Indie Flower</option>
-      <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
-    </select>
+                    <div class="form-group">
+                        <label for="fromName">From:</label>
+                        <input type="text" id="fromName" placeholder="Your name...">
+                    </div>
 
-    <label for="backgroundColor">Select Background Color:</label>
-    <input type="color" id="backgroundColor" value="#ffffff" />
+                    <div class="form-group">
+                        <label>Select Theme:</label>
+                        <div class="theme-buttons">
+                            <button data-theme="birthday"><i class="fas fa-birthday-cake"></i> Birthday</button>
+                            <button data-theme="congratulations"><i class="fas fa-trophy"></i> Congratulations</button>
+                            <button data-theme="love"><i class="fas fa-heart"></i> Love</button>
+                            <button data-theme="friendship"><i class="fas fa-handshake"></i> Friendship</button>
+                            <button data-theme="thankYou"><i class="fas fa-hands-helping"></i> Thank You</button>
+                            <button data-theme="anniversary"><i class="fas fa-ring"></i> Anniversary</button>
+                            <button data-theme="babyShower"><i class="fas fa-baby"></i> Baby Shower</button>
+                            <button data-theme="graduation"><i class="fas fa-graduation-cap"></i> Graduation</button>
+                            <button data-theme="getWellSoon"><i class="fas fa-heartbeat"></i> Get Well Soon</button>
+                            <button data-theme="sympathy"><i class="fas fa-dove"></i> Sympathy</button>
+                            <button data-theme="christmas"><i class="fas fa-holly-berry"></i> Christmas</button>
+                            <button data-theme="newYear"><i class="fas fa-glass-cheers"></i> New Year</button>
+                            <button data-theme="easter"><i class="fas fa-egg"></i> Easter</button>
+                            <button data-theme="valentinesDay"><i class="fas fa-heart"></i> Valentine's Day</button>
+                            <button data-theme="mothersDay"><i class="fas fa-spa"></i> Mother's Day</button>
+                            <button data-theme="fathersDay"><i class="fas fa-male"></i> Father's Day</button>
+                            <button data-theme="housewarming"><i class="fas fa-home"></i> Housewarming</button>
+                            <button data-theme="retirement"><i class="fas fa-umbrella-beach"></i> Retirement</button>
+                            <button data-theme="goodLuck"><i class="fas fa-clover"></i> Good Luck</button>
+                            <button data-theme="wedding"><i class="fas fa-heart"></i> Wedding</button>
+                        </div>
+                    </div>
 
-    <label for="customMessage">Write Your Message:</label>
-    <textarea id="customMessage" placeholder="Write your custom message here..." rows="4"></textarea>
+                    <div class="form-group">
+                        <label for="fontStyle">Font Style:</label>
+                        <select id="fontStyle">
+                            <option value="Arial, sans-serif">Arial</option>
+                            <option value="'Courier New', monospace">Courier New</option>
+                            <option value="'Georgia', serif">Georgia</option>
+                            <option value="'Poppins', sans-serif">Poppins</option>
+                            <option value="'Times New Roman', serif">Times New Roman</option>
+                            <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+                            <option value="'Brush Script MT', cursive">Brush Script MT</option>
+                            <option value="'Pacifico', cursive">Pacifico</option>
+                            <option value="'Dancing Script', cursive">Dancing Script</option>
+                            <option value="'Lobster', cursive">Lobster</option>
+                            <option value="'Indie Flower', cursive">Indie Flower</option>
+                            <option value="'Shadows Into Light', cursive">Shadows Into Light</option>
+                        </select>
+                    </div>
 
-    <button id="generateCard">Generate Card</button>
+                    <div class="form-group">
+                        <label for="backgroundColor">Background Color:</label>
+                        <input type="color" id="backgroundColor" value="#f5f0e5">
+                    </div>
 
-    <div id="card" class="card">
-      <div class="page left">
-        <p id="toDisplay" class="to-from"></p>
-        <h2 id="cardTitle"></h2>
-        <p id="poeticMessage"></p>
-        <div id="leftEmoji" class="emoji"></div>
-      </div>
-      <div class="page right">
-        <div id="rightEmoji" class="emoji"></div>
-        <p id="customMessageDisplay"></p>
-        <p id="fromDisplay" class="to-from"></p>
-      </div>
-    </div>
+                    <div class="form-group">
+                        <label for="customMessage">Your Message:</label>
+                        <textarea id="customMessage" placeholder="Write your heartfelt message here..." rows="4"></textarea>
+                    </div>
 
-    <button id="downloadCard">Download Card</button>
-  </div>
+                    <button id="generateCard" class="btn btn-primary btn-large">
+                        <i class="fas fa-magic"></i> Generate Card
+                    </button>
+                </div>
 
-  <footer>
-    <p>© 2023 Greeting Card Maker. All rights reserved.</p>
-  </footer>
+                <div class="preview-section">
+                    <div id="card" class="card-preview">
+                        <div class="card-inner">
+                            <div class="page left">
+                                <p id="toDisplay" class="to-from"></p>
+                                <h2 id="cardTitle"></h2>
+                                <p id="poeticMessage"></p>
+                                <div id="leftEmoji" class="emoji"></div>
+                            </div>
+                            <div class="page right">
+                                <div id="rightEmoji" class="emoji"></div>
+                                <p id="customMessageDisplay"></p>
+                                <p id="fromDisplay" class="to-from"></p>
+                            </div>
+                        </div>
+                    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="script.js"></script>
+                    <button id="downloadCard" class="btn btn-secondary btn-large">
+                        <i class="fas fa-download"></i> Download Card
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose CardCraft?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Beautiful Designs</h3>
+                    <p>Choose from dozens of professionally designed templates for any occasion.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Quick & Easy</h3>
+                    <p>Create and download your perfect card in just a few clicks.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Privacy Focused</h3>
+                    <p>Your cards are created in your browser - we never see your personal messages.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-gift"></i> CardCraft
+                    </a>
+                    <p>Making heartfelt connections through beautiful cards.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CardCraft. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
