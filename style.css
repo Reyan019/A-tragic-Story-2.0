@@ -289,6 +289,31 @@ button {
     font-family: 'Times New Roman', serif;
 }
 
+
+@media print {
+    .card {
+        width: 297mm !important;
+        height: 210mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background-color: white !important;
+        break-after: avoid;
+        break-before: avoid;
+        page-break-after: avoid;
+        page-break-before: avoid;
+    }
+
+    body {
+        background-color: white !important;
+    }
+
+    .container {
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+}
+
 /* Responsive adjustments for horizontal card */
 @media (max-width: 297mm) {
     .card {
